@@ -18,7 +18,28 @@
 </head>
 <body>
 
+<div class="container">
   {{{body}}}
+
+  <div class="panel panel-default">
+    <div class="panel panel-heading">
+      <h2>Would you like to add a burger?</h2>
+    </div>
+    <div class="panel panel-body">
+      <form id="add-burger">
+        <label for="burger-name-input">Burger Name</label>
+          <div class="input-group" name="burger-name-input">
+          <input type="text" id="burger-name-input" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn" id="submit-burger">Add Burger</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/js/client.js"></script>
 
 </body>
 </html>
