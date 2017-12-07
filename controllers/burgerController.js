@@ -19,12 +19,12 @@ router.post('/api/burgers', (req, res) => {
     })
 })
 
-router.put('/api/burgers', (req, res) => {
+router.put('/api/burgers/:id', (req, res) => {
   Burger.update([
     'devoured'
     ], [
       req.body.devoured,
-      req.body.id
+      req.params.id
     ], data => {
       res.json(data)
     })

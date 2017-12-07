@@ -1,6 +1,33 @@
 $(document).ready(() => {
 
+  $('.btn-default').on('click', function(e) {
+    e.preventDefault();
+    let id = $(this).val();
 
+    $.ajax({
+      url: `/api/burgers/${id}`,
+      method: 'PUT',
+      data: {
+        devoured: 1
+      },
+      success: result => {
+        location.reload();
+      }
+    })
+  })
+
+  $('.btn-danger').on('click', function(e) {
+    e.preventDefault();
+    let id = $(this).val();
+
+    $.ajax({
+      url: `/api/burgers/${id}`,
+      method: 'DELETE',
+      success: (result => {
+        location.reload()
+      })
+    })
+  })
 
   $('#submit-burger').on('click', (e) => {
     e.preventDefault();
