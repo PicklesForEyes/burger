@@ -30,5 +30,12 @@ router.put('/api/burgers', (req, res) => {
     })
 })
 
+router.delete('/api/burgers/:id', (req, res) => {
+  var id = req.params.id;
+  Burger.delete(id, data => {
+    res.json(data)
+  })
+})
+
 
 module.exports = router;

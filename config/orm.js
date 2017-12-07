@@ -24,6 +24,14 @@ const orm = {
       cb(res)
     })
   },
+  delete: (val, cb) => {
+    let queryStr = `DELETE FROM burgers WHERE id=?`;
+
+    connection.query(queryStr, val, (err, res) => {
+      if (err) throw err;
+      cb(res)
+    })
+  }
 }
 
 module.exports = orm;

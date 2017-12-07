@@ -17,6 +17,12 @@ let burger = {
     orm.update(col, vals, res => {
       cb(res)
     })
+  },
+
+  delete: (val, cb) => {
+    orm.delete(val, res => {
+      cb(res)
+    })
   }
 }
 
