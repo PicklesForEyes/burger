@@ -11,6 +11,12 @@ let burger = {
     orm.createNew(cols, vals, res => {
       cb(res)
     })
+  },
+
+  update: (col, vals, cb) => {
+    orm.update(col, vals, res => {
+      cb(res)
+    })
   }
 }
 

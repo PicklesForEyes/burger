@@ -9,7 +9,15 @@ const orm = {
     })
   },
   createNew: (cols, val, cb) => {
-    let queryStr = `INSERT INTO burgers(${cols.toString()}) VALUES(?, ?)`
+    let queryStr = `INSERT INTO burgers(${cols.toString()}) VALUES(?)`
+
+    connection.query(queryStr, val, (err, res) => {
+      if (err) throw err;
+      cb(res)
+    })
+  },
+  update: (cols, val, cb) => {
+    let queryStr = `UPDATE burgers SET ${cols.toString()}=? WHERE id=?`
 
     connection.query(queryStr, val, (err, res) => {
       if (err) throw err;

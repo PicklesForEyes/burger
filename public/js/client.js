@@ -1,6 +1,7 @@
 $(document).ready(() => {
 
 
+
   $('#submit-burger').on('click', (e) => {
     e.preventDefault();
     let burgerName = $('#burger-name-input').val().trim();
@@ -8,10 +9,9 @@ $(document).ready(() => {
     if(burgerName) {
       $.ajax({
         url: '/api/burgers',
-        method: 'PUT',
+        method: 'POST',
         data: {
-          burger_name: burgerName,
-          devoured: false
+          burger_name: burgerName
         },
         success: result => {
           location.reload()

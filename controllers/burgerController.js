@@ -10,11 +10,23 @@ router.get('/', (req, res) => {
 
 router.post('/api/burgers', (req, res) => {
   Burger.create([
-    'burger_name', 'devoured'
+    'burger_name'
     ], [
-      req.body.burger_name, req.body.devoured
+      req.body.burger_name,
+      req.body.devoured
     ], data => {
       res.json({ id: data.insertId })
+    })
+})
+
+router.put('/api/burgers', (req, res) => {
+  Burger.update([
+    'devoured'
+    ], [
+      req.body.devoured,
+      req.body.id
+    ], data => {
+      res.json(data)
     })
 })
 
