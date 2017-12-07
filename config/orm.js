@@ -1,0 +1,21 @@
+const connection = require('./connection.js');
+
+const orm = {
+  getAll: (cb) => {
+    let queryStr = `SELECT * FROM burgers;`;
+    connection.query(queryStr, (err, res) => {
+      if (err) throw err;
+      cb(res)
+    })
+  },
+  createNew: (cols, val, cb) => {
+    let queryStr = `INSERT INTO burgers(${cols.toString()}) VALUES(?, ?)`
+
+    connection.query(queryStr, val, (err, res) => {
+      if (err) throw err;
+      cb(res)
+    })
+  },
+}
+
+module.exports = orm;
