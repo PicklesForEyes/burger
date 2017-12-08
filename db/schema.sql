@@ -6,5 +6,6 @@ create table burgers(
   id int not null auto_increment,
   burger_name varchar(30),
   devoured boolean default 0,
+  date timestamp,
   primary key (id)
 );
